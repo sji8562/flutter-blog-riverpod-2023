@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/ui/pages/post/list_page/wiegets/post_list_body.dart';
 import 'package:flutter_blog/ui/widgets/custom_navigator.dart';
+import 'package:logger/logger.dart';
 
 class PostListPage extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -18,7 +19,9 @@ class PostListPage extends StatelessWidget {
       ),
       body: RefreshIndicator(
         key: refreshKey,
-        onRefresh: () async {},
+        onRefresh: () async {
+          Logger().d("리플래시됨");
+        },
         child: PostListBody(),
       ),
     );
